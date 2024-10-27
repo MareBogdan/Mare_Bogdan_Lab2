@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Mare_Bogdan_Lab2.Data;
 using Mare_Bogdan_Lab2.Models;
+using Mare_Bogdan_Lab2.Models;
 
 namespace Mare_Bogdan_Lab2.Pages.Authors
 {
@@ -30,7 +31,7 @@ namespace Mare_Bogdan_Lab2.Pages.Authors
                 return NotFound();
             }
 
-            var author =  await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
+            var author = await _context.Author.FirstOrDefaultAsync(m => m.ID == id);
             if (author == null)
             {
                 return NotFound();

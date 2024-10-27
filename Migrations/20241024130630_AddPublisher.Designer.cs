@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Mare_Bogdan_Lab2.Migrations
 {
-    [DbContext(typeof(Mare_Bogdan_Lab2Context))]
-    [Migration("20241024130630_AddPublisher")]
+    [DbContext(typeof( Mare_Bogdan_Lab2Context))]
+    [Migration("20241026100951_AddPublisher")]
     partial class AddPublisher
     {
         /// <inheritdoc />
@@ -26,67 +26,67 @@ namespace Mare_Bogdan_Lab2.Migrations
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Mare_Bogdan_Lab2.Models.Book", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("ID")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Author")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(6, 2)");
+                b.Property<decimal>("Price")
+                    .HasColumnType("decimal(6, 2)");
 
-                    b.Property<int?>("PublisherID")
-                        .HasColumnType("int");
+                b.Property<int?>("PublisherID")
+                    .HasColumnType("int");
 
-                    b.Property<DateTime>("PublishingDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime>("PublishingDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Title")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                b.HasKey("ID");
 
-                    b.HasIndex("PublisherID");
+                b.HasIndex("PublisherID");
 
-                    b.ToTable("Book");
-                });
+                b.ToTable("Book");
+            });
 
             modelBuilder.Entity("Mare_Bogdan_Lab2.Models.Publisher", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("ID")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("PublisherName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("PublisherName")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                b.HasKey("ID");
 
-                    b.ToTable("Publisher");
-                });
+                b.ToTable("Publisher");
+            });
 
             modelBuilder.Entity("Mare_Bogdan_Lab2.Models.Book", b =>
-                {
-                    b.HasOne("Mare_Bogdan_Lab2.Models.Publisher", "Publisher")
-                        .WithMany("Books")
-                        .HasForeignKey("PublisherID");
+            {
+                b.HasOne("Mare_Bogdan_Lab2.Models.Publisher", "Publisher")
+                    .WithMany("Books")
+                    .HasForeignKey("PublisherID");
 
-                    b.Navigation("Publisher");
-                });
+                b.Navigation("Publisher");
+            });
 
             modelBuilder.Entity("Mare_Bogdan_Lab2.Models.Publisher", b =>
-                {
-                    b.Navigation("Books");
-                });
+            {
+                b.Navigation("Books");
+            });
 #pragma warning restore 612, 618
         }
     }

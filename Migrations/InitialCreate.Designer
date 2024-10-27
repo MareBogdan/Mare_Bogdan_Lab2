@@ -1,0 +1,6 @@
+﻿namespace Mare_Bogdan_Lab2.Migrations
+{
+    public class InitialCreate
+    {
+    }
+}

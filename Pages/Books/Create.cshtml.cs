@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Mare_Bogdan_Lab2.Data;
 using Mare_Bogdan_Lab2.Models;
+using Mare_Bogdan_Lab2.Models;
 
 namespace Mare_Bogdan_Lab2.Pages.Books
 {
@@ -21,17 +22,26 @@ namespace Mare_Bogdan_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
+            var authorList = _context.Author.Select(x => new
+            {
+                x.ID,
+                FullName = x.LastName + " " + x.FirstName
+            });
+
+            ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
             ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "LastName");
 
             var book = new Book();
             book.BookCategories = new List<BookCategory>();
             PopulateAssignedCategoryData(_context, book);
+
             return Page();
         }
 
         [BindProperty]
         public Book Book { get; set; } = default!;
+
+        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string[] selectedCategories)
         {
             var newBook = new Book();
@@ -48,19 +58,6 @@ namespace Mare_Bogdan_Lab2.Pages.Books
                 }
             }
             Book.BookCategories = newBook.BookCategories;
-            _context.Book.Add(Book);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
-        }
-
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             _context.Book.Add(Book);
             await _context.SaveChangesAsync();
 

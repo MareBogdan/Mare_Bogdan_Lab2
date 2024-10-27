@@ -1,11 +1,11 @@
-﻿@page
+﻿@page "/"
 @model Mare_Bogdan_Lab2.Pages.Books.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Books";
 }
 
-<h1>Index</h1>
+<h1>Books</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -17,9 +17,6 @@
                 @Html.DisplayNameFor(model => model.Book[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Author)hat
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Book[0].Price)
             </th>
             <th>
@@ -29,12 +26,11 @@
                 @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Author.LastName)
+                @Html.DisplayNameFor(Model => Model.Book[0].Author)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].BookCategories)
+                @Html.DisplayNameFor(Model => Model.Book[0].BookCategories)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -46,24 +42,22 @@
                 selectedRow = "table-success";
             }
             <tr class="@selectedRow">
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.LastName)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeItem => item.Publisher.PublisherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.FirstName)
+                    @Html.DisplayFor(modelItem => item.Author.LastName)
+                </td>
                 <td>
                     @{
                         foreach (var category in item.BookCategories)
@@ -72,13 +66,12 @@
                         }
                     }
                 </td>
-
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
 }
     </tbody>
 </table>
