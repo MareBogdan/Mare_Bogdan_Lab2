@@ -1,6 +1,7 @@
-﻿using Mare_Bogdan_Lab2.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mare_Bogdan_Lab2.Data;
+using Mare_Bogdan_Lab2.Models;
+
 namespace Mare_Bogdan_Lab2.Models
 {
     public class BookCategoriesPageModel : PageModel
@@ -55,7 +56,7 @@ namespace Mare_Bogdan_Lab2.Models
                         BookCategory bookToRemove
                         = bookToUpdate
                         .BookCategories
-                       .SingleOrDefault(i => i.CategoryID == cat.ID);
+                        .SingleOrDefault(i => i.CategoryID == cat.ID);
                         context.Remove(bookToRemove);
                     }
                 }

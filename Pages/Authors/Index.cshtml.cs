@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Mare_Bogdan_Lab2.Data;
 using Mare_Bogdan_Lab2.Models;
+using Mare_Bogdan_Lab2.Models;
 
 namespace Mare_Bogdan_Lab2.Pages.Authors
 {
@@ -19,7 +20,7 @@ namespace Mare_Bogdan_Lab2.Pages.Authors
             _context = context;
         }
 
-        public IList<Author> Author { get;set; } = default!;
+        public IList<Author> Author { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
