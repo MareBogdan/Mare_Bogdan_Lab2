@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Mare_Bogdan_Lab2.Data;
 using Mare_Bogdan_Lab2.Models;
-using Mare_Bogdan_Lab2.Models;
 
-namespace Mare_Bogdan_Lab2.Pages.Authors
+namespace Mare_Bogdan_Lab2.Pages.Categories
 {
     public class CreateModel : PageModel
     {
@@ -26,7 +25,7 @@ namespace Mare_Bogdan_Lab2.Pages.Authors
         }
 
         [BindProperty]
-        public Author Author { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace Mare_Bogdan_Lab2.Pages.Authors
                 return Page();
             }
 
-            _context.Author.Add(Author);
+            _context.Category.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

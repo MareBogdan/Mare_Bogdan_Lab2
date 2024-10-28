@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Mare_Bogdan_Lab2.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Policy;
 
 namespace Mare_Bogdan_Lab2.Models
 {
@@ -13,7 +13,6 @@ namespace Mare_Bogdan_Lab2.Models
         public int? AuthorID { get; set; }
         public Author? Author { get; set; }
 
-
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
 
@@ -22,5 +21,7 @@ namespace Mare_Bogdan_Lab2.Models
 
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
+
+        public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }
