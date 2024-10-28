@@ -44,6 +44,14 @@
             @Html.DisplayFor(model => model.Book.BookCategories)
         </dd>
     </dl>
+    <h4>Categorii</h4>
+    <ul>
+        @foreach (var category in Model.Book.BookCategories.Select(bc => bc.Category))
+
+        {
+            <li>@category.CategoryName</li>
+        }
+    </ul>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Book.ID">Edit</a> |
