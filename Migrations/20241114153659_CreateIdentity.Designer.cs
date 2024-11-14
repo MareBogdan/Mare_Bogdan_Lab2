@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Mare_Bogdan_Lab2.Migrations.LibraryIdentity
+namespace Mare_Bogdan_Lab2.Migrations
 {
     [DbContext(typeof(LibraryIdentityContext))]
-    [Migration("20241111125027_CreateIdentity")]
+    [Migration("20241114153659_CreateIdentity")]
     partial class CreateIdentity
     {
         /// <inheritdoc />

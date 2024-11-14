@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Mare_Bogdan_Lab2.Migrations.LibraryIdentity
+namespace Mare_Bogdan_Lab2.Migrations
 {
     [DbContext(typeof(LibraryIdentityContext))]
     partial class LibraryIdentityContextModelSnapshot : ModelSnapshot

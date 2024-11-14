@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Mare_Bogdan_Lab2.Migrations
+namespace Mare_Bogdan_Lab2.Migrations.Mare_Bogdan_Lab2
 {
     [DbContext(typeof(Mare_Bogdan_Lab2Context))]
-    [Migration("20241111123120_Borrowings")]
-    partial class Borrowings
+    [Migration("20241114153750_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Mare_Bogdan_Lab2.Migrations
+namespace Mare_Bogdan_Lab2.Migrations.Mare_Bogdan_Lab2
 {
     [DbContext(typeof(Mare_Bogdan_Lab2Context))]
     partial class Mare_Bogdan_Lab2ContextModelSnapshot : ModelSnapshot
