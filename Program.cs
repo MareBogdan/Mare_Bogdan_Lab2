@@ -13,7 +13,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Books");
-    options.Conventions.AllowAnonymousToPage("/Books/Index");
+    options.Conventions.AllowAnonymousToPage("/Books/Index");   
     options.Conventions.AllowAnonymousToPage("/Books/Details");
     options.Conventions.AuthorizeFolder("/Members", "AdminPolicy");
 
